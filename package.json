@@ -1,11 +1,14 @@
 {
-  "name": "@riophae/vue-treeselect",
+  "name": "@myena/vue-treeselect",
   "version": "0.4.0",
   "description": "A multi-select component with nested options support for Vue.js",
   "author": "Riophae Lee <riophaelee@gmail.com>",
+  "contributors": [
+    "Andy Ghiuta <aghiuta@ena.com>"
+  ],
   "license": "MIT",
   "homepage": "https://vue-treeselect.js.org/",
-  "repository": "riophae/vue-treeselect",
+  "repository": "github:myENA/vue-treeselect",
   "main": "dist/vue-treeselect.cjs.js",
   "unpkg": "dist/vue-treeselect.umd.min.js",
   "css": "dist/vue-treeselect.min.css",
@@ -30,7 +33,6 @@
     "verify-builds": "size-limit && node build/verify-builds.js",
     "finish": "npm test && npm run build-library && npm run verify-builds"
   },
-  "pre-commit": "lint",
   "dependencies": {
     "@babel/runtime": "^7.3.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
@@ -92,7 +94,6 @@
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "ora": "^4.0.1",
     "postcss-loader": "^3.0.0",
-    "pre-commit": "^1.2.2",
     "pug": "^2.0.0",
     "pug-loader": "^2.4.0",
     "puppeteer": "^2.0.0",
