@@ -535,6 +535,14 @@ export default {
     },
 
     /**
+     * Search in ancestor nodes too.
+     */
+    searchSplitWords: {
+      type: Boolean,
+      default: true,
+    },
+
+    /**
      * Whether to show a children count next to the label of each branch node.
      */
     showCount: {
@@ -1222,8 +1230,10 @@ export default {
         }
       })
 
-      const lowerCasedSearchQuery = searchQuery.trim().toLocaleLowerCase()
-      const splitSearchQuery = lowerCasedSearchQuery.replace(/\s+/g, ' ').split(' ')
+      const lowerCasedSearchQuery = searchQuery.toLocaleLowerCase().replace(/\s+/g, ' ')
+      const splitSearchQuery = this.searchSplitWords
+        ? lowerCasedSearchQuery.trim().split(' ')
+        : [ lowerCasedSearchQuery ]
       this.traverseAllNodesDFS(node => {
         if (this.searchNested && splitSearchQuery.length > 1) {
           node.isMatched = splitSearchQuery.every(filterValue =>
